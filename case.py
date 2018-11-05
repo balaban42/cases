@@ -3,9 +3,9 @@ Developer:
 Balabanov M.A.
 
 """
+import ru_local
 
-
-text = input()
+text = input('{}'.format(ru_local.WRITE))
 
 count_sentences = text.count('.')
 count_words = len(text.split())
@@ -19,9 +19,21 @@ ASL = count_words / count_sentences
 ASW = count_syllables / count_words
 FRE = 206.835 - (1.3 * ASL) - (60.1 * ASW)
 
-print(count_sentences)
-print(count_words)
-print(count_syllables)
+print('{}'.format(ru_local.SENTENCES), count_sentences)
+print('{}'.format(ru_local.WORDS), count_words)
+print('{}'.format(ru_local.SYLLABLES), count_syllables)
 print(ASL)
 print(ASW)
 print(FRE)
+if FRE >= 81:
+    print('{}'.format(ru_local.TYPE1))
+
+elif 80 >= FRE >= 51:
+    print('{}'.format(ru_local.TYPE2))
+
+elif 50 >= FRE >= 26:
+    print('{}'.format(ru_local.TYPE3))
+
+elif FRE <= 25:
+    print('{}'.format(ru_local.TYPE4))
+
